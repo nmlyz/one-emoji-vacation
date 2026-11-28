@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 """Write one emoji to /output/entry.txt.
 
-The emoji is the one emoji for a dream vacation: Mount Fuji.
-A snow-capped mountain is the trip itself in a single picture: the
-brief names a mountain as a dream vacation, and this one mountain
-names one particular dream, a journey to Japan, instead of any
-holiday. The shape is a postcard at a glance and reads at any size.
+The emoji is the one emoji for a dream vacation: a national park.
+Mountains, sun and a river valley in a single picture: the whole place
+a traveller dreams of visiting, as one postcard, instead of any
+holiday. The shape is a landscape at a glance and reads at any size.
 
 Behaviour
 ----------
-* Writes exactly one emoji, Mount Fuji, as UTF-8 bytes to
+* Writes exactly one emoji, a national park, as UTF-8 bytes to
   ``/output/entry.txt`` (or ``$MAKEFUN_OUTPUT_DIR/entry.txt`` when that
   environment variable is set).
 * The file contains the emoji only: four bytes, no trailing newline.
@@ -30,7 +29,7 @@ import sys
 import unicodedata
 from pathlib import Path
 
-EMOJI = "🗻"
+EMOJI = "🏞"
 
 MIN_LENGTH = 1
 MAX_LENGTH = 8
@@ -132,8 +131,8 @@ def verify_entry(path, emoji):
     """Read the entry file back and check it holds exactly *emoji*.
 
     Returns a list of problems (empty when the file is correct). This
-    read-back catches a truncated write, a stray newline, or an
-    encoding surprise before the run can report success.
+    read-back catches a truncated write, a stray newline, or an encoding
+    surprise before the run can report success.
     """
     problems = []
     expected = encode_entry(emoji)
